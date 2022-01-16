@@ -41,11 +41,13 @@ namespace CARRENT.Models
         [DisplayName("Upload File")]
         public string CheminImageCIN { get; set; }
 
+        [NotMapped]
         public HttpPostedFileBase CINFichier { get; set; }
 
         [DisplayName("Upload File")]
         public string CheminImagePermis { get; set; }
 
+        [NotMapped]
         public HttpPostedFileBase PermisFichier { get; set; }
     }
 }

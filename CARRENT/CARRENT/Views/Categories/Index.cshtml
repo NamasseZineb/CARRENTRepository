@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CARRENT.Models.Categorie>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Créer", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.taille)
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.taille)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
+
+

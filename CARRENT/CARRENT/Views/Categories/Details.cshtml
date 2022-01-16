@@ -1,0 +1,36 @@
+﻿@model CARRENT.Models.Categorie
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Détails</title>
+</head>
+<body>
+    <div>
+        <h4>Catégorie</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.taille)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.taille)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Modifier", "Edit", new { id = Model.CID }) |
+        @Html.ActionLink("Retour au menu", "Index")
+    </p>
+</body>
+</html>
+
+

@@ -35,6 +35,7 @@ namespace CARRENT.Models
         [DisplayName("Upload File")]
         public string CheminImage { get; set; }
 
+        [NotMapped]
         public HttpPostedFileBase ImageFichier { get; set; }
 
         [ForeignKey("Modele")]

@@ -28,5 +28,9 @@ namespace CARRENT.Models
         [ForeignKey("Client")]
         public int CLID { get; set; }
         public Client Client { get; set; }
+
+        [ForeignKey("Voiture")]
+        public int VID { get; set; }
+        public Voiture Voiture { get; set; }
     }
 }

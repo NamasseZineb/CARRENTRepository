@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CARRENT", "CARRENT\CARRENT.csproj", "{2C632AD9-65D9-4C10-B1C9-2B39C1442460}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CARRENT", "CARRENT\CARRENT.csproj", "{865CB48F-0739-4A59-91CF-DE427D6A3242}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2C632AD9-65D9-4C10-B1C9-2B39C1442460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C632AD9-65D9-4C10-B1C9-2B39C1442460}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C632AD9-65D9-4C10-B1C9-2B39C1442460}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C632AD9-65D9-4C10-B1C9-2B39C1442460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{865CB48F-0739-4A59-91CF-DE427D6A3242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{865CB48F-0739-4A59-91CF-DE427D6A3242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{865CB48F-0739-4A59-91CF-DE427D6A3242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{865CB48F-0739-4A59-91CF-DE427D6A3242}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4762EBD4-95AC-4B70-BA23-E60BB2C8FE7A}
+		SolutionGuid = {50312572-DE65-49B3-968E-42D99128EA29}
 	EndGlobalSection
 EndGlobal

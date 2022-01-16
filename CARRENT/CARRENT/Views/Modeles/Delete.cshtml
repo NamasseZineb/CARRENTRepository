@@ -1,0 +1,41 @@
+﻿@model CARRENT.Models.Modele
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Supprimer</h2>
+
+<h3>Etes-vous sûr(e) de supprimer ce modèle?</h3>
+<div>
+    <h4>Modèle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nommarque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nommarque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numérosérie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numérosérie)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-default" /> |
+    @Html.ActionLink("Retour au menu", "Index")
+</div>
+    }
+</div>

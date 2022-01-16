@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CARRENT.Models.Voiture>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Categorie.taille)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modele.nommarque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numéroimmattriculation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateMiseCirculation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeCarburant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrixLocationJournalier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheminImage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categorie.taille)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modele.nommarque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numéroimmattriculation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateMiseCirculation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeCarburant)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrixLocationJournalier)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheminImage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VID })
+        </td>
+    </tr>
+}
+
+</table>

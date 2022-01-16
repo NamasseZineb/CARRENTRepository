@@ -1,0 +1,35 @@
+﻿@model CARRENT.Models.Modele
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Détails</h2>
+
+<div>
+    <h4>Modèle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nommarque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nommarque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numérosérie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numérosérie)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MID }) |
+    @Html.ActionLink("Retour au menu", "Index")
+</p>
