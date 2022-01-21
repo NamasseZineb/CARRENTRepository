@@ -78,13 +78,13 @@ namespace CARRENT.Controllers
         }
 
         // GET: Modeles/Delete/5
-        /*public ActionResult Delete(int id)
+        public ActionResult Delete(int id)
         {
             return View();
-        }*/
+        }
 
         // GET: Voitures/Delete/5
-        [HttpPost]
+       /* [HttpPost]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -97,7 +97,7 @@ namespace CARRENT.Controllers
                 return HttpNotFound();
             }
             return View(voi);
-        }
+        }*/
         // POST: Modeles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

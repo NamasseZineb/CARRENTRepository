@@ -59,7 +59,7 @@
                 <div class="col-md-10">
                     @{
                         CARRENT.Models.LocationVoitures db1 = new CARRENT.Models.LocationVoitures();
-                        List<CARRENT.Models.Modele> ListeModelesNumSerie = db.Modeles.ToList();
+                        List<CARRENT.Models.Modele> ListeModelesNumSerie = db1.Modeles.ToList();
 
                         <select value="@Html.HiddenFor(v=>v.MID)" class="form-control">
                             @{
