@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ProjetLocationVoitures.App_Start;
 using CARRENT.Models;
 
 namespace CARRENT.Controllers
@@ -44,14 +43,14 @@ namespace CARRENT.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Include = "CID,taille")] Categorie cat)
         {
-            if (ModelState.IsValid)
-            {
+           // if (ModelState.IsValid)
+            //{
                 db.Categories.Add(cat);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
+            //}
 
-            return View(cat);
+            //return View(cat);
         }
 
         // GET: Categories/Edit/5

@@ -20,7 +20,7 @@ namespace CARRENT.Models
 
         [Required]
         [MaxLength(100)]
-        [Index(IsUnique = true)]
+        //[Index(IsUnique = true)]
         [EmailAddress]
         public string AdresseMail { get; set; }
 

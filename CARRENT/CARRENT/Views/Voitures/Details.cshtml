@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
@@ -10,21 +11,6 @@
     <h4>Voiture</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Categorie.taille)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Categorie.taille)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Modele.nommarque)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Modele.nommarque)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.numéroimmattriculation)
@@ -65,10 +51,30 @@
         <dd>
             @Html.DisplayFor(model => model.CheminImage)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Modele.nommarque)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.Modele.nommarque)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Modele.numérosérie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modele.numérosérie)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Categorie.taille)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categorie.taille)
+        </dd>
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.VID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour au menu", "Index")
 </p>

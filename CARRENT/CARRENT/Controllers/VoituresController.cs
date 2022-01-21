@@ -1,27 +1,22 @@
-﻿using System;
+﻿using CARRENT.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using CARRENT.Models;
-using ProjetLocationVoitures.App_Start;
+using System.Net;
+using System.Data.Entity;
 
 namespace CARRENT.Controllers
 {
     public class VoituresController : Controller
     {
-        private LocationVoitures db = new LocationVoitures();
+        LocationVoitures db = new LocationVoitures();
 
-        // GET: Voitures
         public ActionResult Index()
         {
-            var voitures = db.Voitures.Include(v => v.Categorie).Include(v => v.Modele);
-            return View(voitures.ToList());
+            return View(db.Voitures.ToList());
         }
-
         // GET: Voitures/Details/5
         public ActionResult Details(int? id)
         {
@@ -29,109 +24,89 @@ namespace CARRENT.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Voiture voiture = db.Voitures.Find(id);
-            if (voiture == null)
+            Voiture voi = db.Voitures.Find(id);
+            if (voi == null)
             {
                 return HttpNotFound();
             }
-            return View(voiture);
+            return View(voi);
         }
-
-        // GET: Voitures/Create
         public ActionResult Create()
         {
-            ViewBag.CID = new SelectList(db.Categories, "CID", "taille");
-            ViewBag.MID = new SelectList(db.Modeles, "MID", "nommarque");
             return View();
         }
 
-        // POST: Voitures/Create
-        // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
-        // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VID,numéroimmattriculation,DateMiseCirculation,TypeCarburant,PrixLocationJournalier,CheminImage,MID,CID")] Voiture voiture)
+        public ActionResult Create([Bind(Include = "numéroimmattriculation,DateMiseCirculation,TypeCarburant,PrixLocationJournalier,ImageFichier,Modele,Categorie", Exclude = "CheminImage")] Voiture voiture )
         {
-            if (ModelState.IsValid)
-            {
-                db.Voitures.Add(voiture);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            /*if (!ModelState.IsValid) return View();*/
 
-            ViewBag.CID = new SelectList(db.Categories, "CID", "taille", voiture.CID);
-            ViewBag.MID = new SelectList(db.Modeles, "MID", "nommarque", voiture.MID);
-            return View(voiture);
+            voiture.ImageFichier.SaveAs(@"C:\Users\ACER\Desktop\DOTNETCAR\CARRENTRepository\CARRENT\CARRENT\Images\" + voiture.ImageFichier.FileName);
+            voiture.CheminImage = voiture.ImageFichier.FileName;
+
+            db.Voitures.Add(voiture);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
-
-        // GET: Voitures/Edit/5
+        // GET: Voitures/Edit/
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Voiture voiture = db.Voitures.Find(id);
-            if (voiture == null)
+            Voiture voi = db.Voitures.Find(id);
+            if (voi == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CID = new SelectList(db.Categories, "CID", "taille", voiture.CID);
-            ViewBag.MID = new SelectList(db.Modeles, "MID", "nommarque", voiture.MID);
-            return View(voiture);
+            return View(voi);
         }
-
         // POST: Voitures/Edit/5
-        // Afin de déjouer les attaques par survalidation, activez les propriétés spécifiques auxquelles vous voulez établir une liaison. Pour 
-        // plus de détails, consultez https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "VID,numéroimmattriculation,DateMiseCirculation,TypeCarburant,PrixLocationJournalier,CheminImage,MID,CID")] Voiture voiture)
+        public ActionResult Edit([Bind(Include = "numéroimmattriculation,DateMiseCirculation,TypeCarburant,PrixLocationJournalier,ImageFichier,Modele,Categorie", Exclude = "CheminImage")] Voiture voi)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(voiture).State = EntityState.Modified;
+            //if (ModelState.IsValid)
+            //{
+                db.Entry(voi).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-            ViewBag.CID = new SelectList(db.Categories, "CID", "taille", voiture.CID);
-            ViewBag.MID = new SelectList(db.Modeles, "MID", "nommarque", voiture.MID);
-            return View(voiture);
+            //}
+            //return View(voi);
         }
 
+        // GET: Modeles/Delete/5
+        /*public ActionResult Delete(int id)
+        {
+            return View();
+        }*/
+
         // GET: Voitures/Delete/5
+        [HttpPost]
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Voiture voiture = db.Voitures.Find(id);
-            if (voiture == null)
+            Voiture voi = db.Voitures.Find(id);
+            if (voi == null)
             {
                 return HttpNotFound();
             }
-            return View(voiture);
+            return View(voi);
         }
-
-        // POST: Voitures/Delete/5
+        // POST: Modeles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Voiture voiture = db.Voitures.Find(id);
-            db.Voitures.Remove(voiture);
+            Voiture voi = db.Voitures.Find(id);
+            db.Voitures.Remove(voi);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using CARRENT.Models;
 
-namespace ProjetLocationVoitures.App_Start
+namespace CARRENT.Models
 {
     public class LocationVoitures : DbContext
     {

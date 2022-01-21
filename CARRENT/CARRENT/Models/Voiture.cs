@@ -16,7 +16,7 @@ namespace CARRENT.Models
 
         [Required]
         [StringLength(100)]
-        [Index(IsUnique = true)]
+        //[Index(IsUnique = true)]
         public string numéroimmattriculation { get; set; }
 
         [Required]

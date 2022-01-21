@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ProjetLocationVoitures.App_Start;
 using CARRENT.Models;
 
 namespace CARRENT.Controllers
