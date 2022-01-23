@@ -7,7 +7,7 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Voitures", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -34,11 +34,16 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.TypeCarburant, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.TypeCarburant, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.TypeCarburant, "", new { @class = "text-danger" })
-        </div>
+        @*@Html.LabelFor(model => model.TypeCarburant, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TypeCarburant, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TypeCarburant, "", new { @class = "text-danger" })
+            </div>*@
+        <label>Type de carburant</label>
+        <select name="TypeCarburant">
+            <option>Diesel </option>
+            <option>Essence</option>
+        </select>
     </div>
 
     <div class="form-group">
@@ -55,28 +60,49 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.Modele.nommarque, htmlAttributes: new { @class = "control-label col-md-2" })
+        <label>Modèles</label>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Modele.nommarque, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Modele.nommarque, "", new { @class = "text-danger" })
+            @{
+                CARRENT.Models.LocationVoitures db = new CARRENT.Models.LocationVoitures();
+                List<CARRENT.Models.Modele> ListeModeles = db.Modeles.ToList();
+
+                <select name="MID" class="form-control">
+                    @{
+                        <option value="" disabled hidden selected>Choisir le modèle</option>
+                        foreach (CARRENT.Models.Modele c in ListeModeles)
+                        {
+                            <option value="@c.MID">@c.nommarque @c.numérosérie</option>
+                        }
+                    }
+                </select>
+            }
+            @*@Html.DropDownListFor(v => v.MID , (SelectList)ViewData["modeles"] )
+                @Html.ValidationMessageFor(v => v.MID, "", new { @class = "text-danger" })*@
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Catégories</label>
+        <div class="col-md-10">
+            @{
+                CARRENT.Models.LocationVoitures db1 = new CARRENT.Models.LocationVoitures();
+                List<CARRENT.Models.Categorie> ListeCategories = db1.Categories.ToList();
+
+                <select name="CID" class="form-control">
+                    @{
+                        <option value="" disabled hidden selected>Choisir la catégorie</option>
+                        foreach (CARRENT.Models.Categorie c in ListeCategories)
+                        {
+                            <option value="@c.CID">@c.taille</option>
+                        }
+                    }
+                </select>
+            }
+
+            @*@Html.DropDownListFor(v => v.CID, (SelectList)ViewData["cats"])
+                @Html.ValidationMessageFor(v => v.CID, "", new { @class = "text-danger" })*@
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Modele.numérosérie, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Modele.numérosérie, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Modele.numérosérie, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Categorie.taille, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Categorie.taille, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Categorie.taille, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
@@ -84,8 +110,8 @@
         </div>
     </div>
 </div>
-}
+        }
 
-<div>
-    @Html.ActionLink("Retour au menu", "Index")
-</div>
+        <div>
+            @Html.ActionLink("Retour au menu", "Index")
+        </div>

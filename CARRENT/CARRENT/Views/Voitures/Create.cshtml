@@ -24,8 +24,13 @@
                 @Html.EditorFor(v => v.DateMiseCirculation, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
             </div>
             <div>
-                @Html.LabelFor(v => v.TypeCarburant)
-                @Html.EditorFor(v => v.TypeCarburant, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.LabelFor(v => v.TypeCarburant)
+        @Html.EditorFor(v => v.TypeCarburant, new { htmlAttributes = new { @class = "form-control" } })*@
+                <label>Type de carburant</label>
+                <select name="TypeCarburant">
+                    <option>Diesel </option>
+                    <option>Essence</option>
+                </select>
             </div>
             <div class="form-group">
                 @Html.LabelFor(v => v.PrixLocationJournalier)
@@ -37,51 +42,33 @@
             </div>
             <div class="form-group">
                 <label>Modèles</label>
-                <label>Nom de marque</label>
                 <div class="col-md-10">
                     @{
                         CARRENT.Models.LocationVoitures db = new CARRENT.Models.LocationVoitures();
-                        List<CARRENT.Models.Modele> ListeModelesMarque = db.Modeles.ToList();
+                        List<CARRENT.Models.Modele> ListeModeles = db.Modeles.ToList();
 
-                        <select value="@Html.HiddenFor(v=>v.MID)" class="form-control">
+                        <select name="MID" class="form-control">
                             @{
-                                <option value="" disabled hidden selected>Choisir la marque</option>
-                                foreach (CARRENT.Models.Modele c in ListeModelesMarque)
+                                <option value="" disabled hidden selected>Choisir le modèle</option>
+                                foreach (CARRENT.Models.Modele c in ListeModeles)
                                 {
-                                    <option value="@c.MID">@c.nommarque</option>
+                                    <option value="@c.MID">@c.nommarque @c.numérosérie</option>
                                 }
                             }
                         </select>
                     }
-                    @Html.ValidationMessageFor(v => v.MID, "", new { @class = "text-danger" })
-                </div>
-                <label>Numéro de série</label>
-                <div class="col-md-10">
-                    @{
-                        CARRENT.Models.LocationVoitures db1 = new CARRENT.Models.LocationVoitures();
-                        List<CARRENT.Models.Modele> ListeModelesNumSerie = db1.Modeles.ToList();
-
-                        <select value="@Html.HiddenFor(v=>v.MID)" class="form-control">
-                            @{
-                                <option value="" disabled hidden selected>Choisir le numéro de série</option>
-                                foreach (CARRENT.Models.Modele c in ListeModelesNumSerie)
-                                {
-                                    <option value="@c.MID">@c.numérosérie</option>
-                                }
-                            }
-                        </select>
-                    }
-                    @Html.ValidationMessageFor(v => v.MID, "", new { @class = "text-danger" })
+                    @*@Html.DropDownListFor(v => v.MID , (SelectList)ViewData["modeles"] )
+                    @Html.ValidationMessageFor(v => v.MID, "", new { @class = "text-danger" })*@
                 </div>
             </div>
             <div class="form-group">
                 <label>Catégories</label>
                 <div class="col-md-10">
                     @{
-                        CARRENT.Models.LocationVoitures db2 = new CARRENT.Models.LocationVoitures();
-                        List<CARRENT.Models.Categorie> ListeCategories = db2.Categories.ToList();
+                        CARRENT.Models.LocationVoitures db1 = new CARRENT.Models.LocationVoitures();
+                        List<CARRENT.Models.Categorie> ListeCategories = db1.Categories.ToList();
 
-                        <select value="@Html.HiddenFor(v => v.CID)" class="form-control">
+                        <select name="CID" class="form-control">
                             @{
                                 <option value="" disabled hidden selected>Choisir la catégorie</option>
                                 foreach (CARRENT.Models.Categorie c in ListeCategories)
@@ -91,7 +78,9 @@
                             }
                         </select>
                     }
-                    @Html.ValidationMessageFor(v => v.CID, "", new { @class = "text-danger" })
+                    
+                    @*@Html.DropDownListFor(v => v.CID, (SelectList)ViewData["cats"])
+        @Html.ValidationMessageFor(v => v.CID, "", new { @class = "text-danger" })*@
                 </div>
             </div>
 

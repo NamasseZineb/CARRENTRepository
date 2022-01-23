@@ -36,12 +36,12 @@ namespace CARRENT.Controllers
         // GET: Modeles/Create
         public ActionResult Create()
         {
-            return View();
+            return View(new Modele());
         }
 
         // POST: Modeles/Create
         [HttpPost]
-        public ActionResult Create([Bind(Include = "MID,nommarque,numérosérie")] Modele mod)
+        public ActionResult Create(Modele mod)
         {
             if (ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace CARRENT.Controllers
         // POST: Categories/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MID,nommarque,numérosérie")] Modele mod)
+        public ActionResult Edit(Modele mod)
         {
             if (ModelState.IsValid)
             {
@@ -83,13 +83,13 @@ namespace CARRENT.Controllers
         }
 
         // GET: Modeles/Delete/5
-        public ActionResult Delete(int id)
+        /*public ActionResult Delete(int id)
         {
             return View();
-        }
+        }*/
 
         // GET: Modeles/Delete/5
-        /*[HttpPost]
+        //[HttpPost]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -102,7 +102,7 @@ namespace CARRENT.Controllers
                 return HttpNotFound();
             }
             return View(mod);
-        }*/
+        }
         // POST: Modeles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

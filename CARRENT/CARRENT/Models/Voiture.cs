@@ -25,7 +25,7 @@ namespace CARRENT.Models
 
         [Required]
         [StringLength(100)]
-        [Index(IsUnique = true)]
+        //[Index(IsUnique = true)]
         public string TypeCarburant { get; set; }
 
         [Required]
