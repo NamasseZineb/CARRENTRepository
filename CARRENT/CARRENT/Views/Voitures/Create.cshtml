@@ -1,17 +1,11 @@
 ﻿@model CARRENT.Models.Voiture
 @{
-    Layout = null;
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using CARRENT.Models
-<!DOCTYPE html>
+<h2>Créer</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Creer</title>
-</head>
-<body>
-    <div class="container py-3">
         @using (Html.BeginForm("Create", "Voitures", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.ValidationSummary()
@@ -25,7 +19,7 @@
             </div>
             <div>
                 @*@Html.LabelFor(v => v.TypeCarburant)
-        @Html.EditorFor(v => v.TypeCarburant, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.EditorFor(v => v.TypeCarburant, new { htmlAttributes = new { @class = "form-control" } })*@
                 <label>Type de carburant</label>
                 <select name="TypeCarburant">
                     <option>Diesel </option>
@@ -58,7 +52,7 @@
                         </select>
                     }
                     @*@Html.DropDownListFor(v => v.MID , (SelectList)ViewData["modeles"] )
-                    @Html.ValidationMessageFor(v => v.MID, "", new { @class = "text-danger" })*@
+                        @Html.ValidationMessageFor(v => v.MID, "", new { @class = "text-danger" })*@
                 </div>
             </div>
             <div class="form-group">
@@ -78,16 +72,16 @@
                             }
                         </select>
                     }
-                    
+
                     @*@Html.DropDownListFor(v => v.CID, (SelectList)ViewData["cats"])
-        @Html.ValidationMessageFor(v => v.CID, "", new { @class = "text-danger" })*@
+                        @Html.ValidationMessageFor(v => v.CID, "", new { @class = "text-danger" })*@
                 </div>
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Valider</button>
+                <button type="submit" value="Créer" class="btn btn-success">Créer</button>
             </div>
         }
-    </div>
-</body>
-</html>
+<div>
+    @Html.ActionLink("Retour au menu", "Index",null, new { @class = "btn btn-primary mt-2" })
+</div>

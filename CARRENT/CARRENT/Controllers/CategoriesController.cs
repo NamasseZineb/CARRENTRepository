@@ -43,11 +43,11 @@ namespace CARRENT.Controllers
         [HttpPost]
         public ActionResult Create(Categorie cat)
         {
-           // if (ModelState.IsValid)
+            // if (ModelState.IsValid)
             //{
-                db.Categories.Add(cat);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            db.Categories.Add(cat);
+            db.SaveChanges();
+            return RedirectToAction("Index");
             //}
 
             //return View(cat);

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CARRENT.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nouveau Client", "Register", null, new { @class = "btn btn-info" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomComplet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdresseMail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NuméroTéléphone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateNaissance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheminImageCIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheminImagePermis)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.NomComplet)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AdresseMail)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NuméroTéléphone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateNaissance)
+    </td>
+    <td>
+        <img style="width: 250px" src="~/Images/@item.CheminImageCIN" />
+    </td>
+    <td>
+        <img style="width: 250px" src="~/Images/@item.CheminImagePermis" />
+    </td>
+    <td>
+        @Html.ActionLink("Modifier", "Edit", new { id = item.CLID }, new { @class = "btn btn-primary mt-2" }) |
+        @Html.ActionLink("Détails", "Details", new { id = item.CLID}, new { @class = "btn btn-success" }) |
+        @Html.ActionLink("Supprimer", "Delete", new { id = item.CLID}, new {@class="btn btn-success btn-danger" })
+    </td>
+</tr>
+}
+
+</table>

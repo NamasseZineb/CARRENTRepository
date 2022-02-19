@@ -4,14 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+    <h2>Supprimer</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Supprimer</title>
-</head>
-<body>
     <h3>Etes-vous sûr(e) de vouloir supprimer cette catégorie?</h3>
     <div>
         <h4>Catégorie</h4>
@@ -31,13 +25,11 @@
         {
             @Html.AntiForgeryToken()
 
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Retour au menu", "Index")
-            </div>
-        }
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-success btn-danger" /> |
+            @Html.ActionLink("Retour au menu", "Index", null, new { @class = "btn btn-primary mt-2" })
+        </div>
+    }
     </div>
-</body>
-</html>
 
 

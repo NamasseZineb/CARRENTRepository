@@ -60,7 +60,7 @@ namespace CARRENT.Controllers
             ViewData["cats"] = new SelectList(db.Categories.ToList(), "CID", "taille");
             var modeles = db.Modeles.ToList();
             List<SelectListItem> ListeModeles = new List<SelectListItem>();
-            foreach(var m in modeles)
+            foreach (var m in modeles)
             {
                 ListeModeles.Add(new SelectListItem
                 {
@@ -69,7 +69,7 @@ namespace CARRENT.Controllers
                 });
             }
             ViewData["modeles"] = modeles;
-            
+
 
             return View(new Voiture());
             /*var hospName = db.Hospitals.ToList();
@@ -138,11 +138,11 @@ namespace CARRENT.Controllers
         {
             //if (ModelState.IsValid)
             //{
-                voiture.ImageFichier.SaveAs(@"C:\Users\ACER\Desktop\DOTNETCAR\CARRENTRepository\CARRENT\CARRENT\Images\" + voiture.ImageFichier.FileName);
-                voiture.CheminImage = voiture.ImageFichier.FileName;
-                db.Entry(voiture).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            voiture.ImageFichier.SaveAs(@"C:\Users\ACER\Desktop\DOTNETCAR\CARRENTRepository\CARRENT\CARRENT\Images\" + voiture.ImageFichier.FileName);
+            voiture.CheminImage = voiture.ImageFichier.FileName;
+            db.Entry(voiture).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
             //}
             //return View(voiture);
         }

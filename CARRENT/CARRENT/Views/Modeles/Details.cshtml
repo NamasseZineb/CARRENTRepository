@@ -30,6 +30,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MID }) |
-    @Html.ActionLink("Retour au menu", "Index")
+    @Html.ActionLink("Modifier", "Edit",null, new { id = Model.MID, @class = "btn btn-success" }) |
+    @Html.ActionLink("Retour au menu", "Index", null, new { @class = "btn btn-primary mt-2" })
 </p>

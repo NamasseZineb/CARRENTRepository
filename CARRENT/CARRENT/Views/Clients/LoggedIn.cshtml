@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "LoggedIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if(Session["CLID"]!=null)
+{
+    <h4>Hello @Session["NomComplet"].ToString()</h4>
+}
+

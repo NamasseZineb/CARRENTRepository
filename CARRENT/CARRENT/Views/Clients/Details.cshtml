@@ -1,0 +1,75 @@
+﻿@model CARRENT.Models.Client
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Client</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomComplet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomComplet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdresseMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdresseMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MotDePasse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MotDePasse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NuméroTéléphone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NuméroTéléphone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateNaissance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateNaissance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheminImageCIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheminImageCIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheminImagePermis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheminImagePermis)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", null,new { id = Model.CLID, @class= "btn btn-success" }) |
+    @Html.ActionLink("Retour au menu", "Index", null, new { @class = "btn btn-primary mt-2" })
+</p>

@@ -27,8 +27,8 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Modifier", "Edit", new { id = Model.CID }) |
-        @Html.ActionLink("Retour au menu", "Index")
+        @Html.ActionLink("Modifier", "Edit",null,  new { id = Model.CID, @class = "btn btn-success" }) |
+        @Html.ActionLink("Retour au menu", "Index",null, new { @class = "btn btn-primary mt-2" })
     </p>
 </body>
 </html>
