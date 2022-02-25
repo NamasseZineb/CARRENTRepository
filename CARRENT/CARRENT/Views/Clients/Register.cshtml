@@ -41,7 +41,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.MotDePasse, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.MotDePasse, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.PasswordFor(model => model.MotDePasse, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.MotDePasse, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -85,7 +85,7 @@
 }
 
 <div>
-    @Html.ActionLink("Retour au menu", "Index")
+    @Html.ActionLink("Retour à la liste", "Index")
 </div>
 
 @section Scripts {

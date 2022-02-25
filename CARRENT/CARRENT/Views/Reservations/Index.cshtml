@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CARRENT.Models.Reservation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nouelle réservation", "Create", null, new { @class = "btn btn-info" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.NomComplet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voiture.numéroimmattriculation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.typelocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDebutLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateFinLocation)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.NomComplet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voiture.numéroimmattriculation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.typelocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateDebutLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateFinLocation)
+        </td>
+        <td>
+            @Html.ActionLink("Modifier", "Edit", new { id = item.RID }, new { @class = "btn btn-primary mt-2" }) |
+            @Html.ActionLink("Détails", "Details", new { id = item.RID }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id = item.RID }, new { @class = "btn btn-success btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

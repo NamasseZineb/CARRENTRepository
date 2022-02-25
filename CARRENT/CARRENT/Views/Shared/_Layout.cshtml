@@ -9,49 +9,61 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("CARRENT", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
-                    <li>@Html.ActionLink("À propos de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Catégories", "Index", "Categories")</li>
-                    <li>@Html.ActionLink("Modèles", "Index", "Modeles")</li>
-                    <li>@Html.ActionLink("Voitures", "Index", "Voitures")</li>
-                    @if (User.Identity.IsAuthenticated)
+    <div class="container">
+        <div class="masthead">
+            <nav>
+                <ul class="nav nav-justified">
+                    <li>@Html.ActionLink("Accueil", "Index", "Home", null, new { @class = "btn btn-default" })</li>
+
+                    <li class="disabled">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    <li>@Html.ActionLink("À propos de", "About", "Home", null, new { @class = "btn btn-default" })</li>
+
+                    <li class="disabled">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "btn btn-default" })</li>
+
+                    <li class="disabled">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    <li>@Html.ActionLink("Catégories", "Index", "Categories",null, new { @class = "btn btn-default" })</li>
+
+                    <li class="disabled">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    <li>@Html.ActionLink("Modèles", "Index", "Modeles", null, new { @class = "btn btn-default" })</li>
+
+                    <li class="disabled">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    <li>@Html.ActionLink("Voitures", "Index", "Voitures", null, new { @class = "btn btn-default" })</li>
+
+                    <li class="disabled">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    @if (Session["CLID"] != null)
                     {
                         <li><a>Hello @Session["NomComplet"]</a></li>
-                        <li>@Html.ActionLink("Se déconnecter", "Logout", "Clients")</li>
+                        <li class="disabled">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                        <li>@Html.ActionLink("Se déconnecter", "Logout", "Clients", null, new { @class = "btn btn-default" })</li>
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Se connecter", "Login", "Clients")</li>
+                        <li>@Html.ActionLink("Se connecter", "Login", "Clients", null, new { @class = "btn btn-default" })</li>
                     }
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - CARRENT</p>
-            <p>Namasse Zineb et Reggabe Meryam, 4IIRG2, EMSI Maârif</p>
-        </footer>
-    </div>
+                    <li class="disabled">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
-    <script src="~/Scripts/jquery-3.0.0.js"></script>
-    <script src="~/Scripts/umd/popper.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
-    @RenderSection("scripts", required: false)
+                    <li>@Html.ActionLink("Clients", "Index", "Clients", null, new { @class = "btn btn-default" })</li>
+
+                    <li class="disabled">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+                    <li>@Html.ActionLink("Réservations", "Index", "Reservations", null, new { @class = "btn btn-default" })</li>
+                </ul>
+            </nav>
+            </div>
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - CARRENT</p>
+                <p>Namasse Zineb et Reggabe Meryam, 4IIRG2, EMSI Maârif</p>
+            </footer>
+        </div>
+
+        <script src="~/Scripts/jquery-3.0.0.js"></script>
+        <script src="~/Scripts/umd/popper.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
+        @RenderSection("scripts", required: false)
 </body>
 </html>
+
+

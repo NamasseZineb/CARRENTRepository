@@ -1,0 +1,59 @@
+﻿@model CARRENT.Models.Reservation
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using CARRENT.Models;
+<h2>Details</h2>
+
+<div>
+    <h4>Réservation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.CLID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.CLID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voiture.numéroimmattriculation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voiture.numéroimmattriculation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.typelocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.typelocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDebutLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDebutLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFinLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFinLocation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", null, new { id = Model.RID, @class = "btn btn-success" }) |
+    @Html.ActionLink("Retour à la liste", "Index", null, new { @class = "btn btn-primary mt-2" })
+</p>

@@ -25,6 +25,9 @@ namespace CARRENT.Models
         [Column(TypeName = "date")]
         public DateTime DateFinLocation { get; set; }
 
+       // [Required]
+        //public double PrixLocationFinal { get; set; }
+
         [ForeignKey("Client")]
         public int CLID { get; set; }
         public Client Client { get; set; }

@@ -68,7 +68,7 @@ namespace CARRENT.Controllers
                     Text = m.nommarque + " " + m.numérosérie
                 });
             }
-            ViewData["modeles"] = modeles;
+            
 
 
             return View(new Voiture());
@@ -100,10 +100,11 @@ namespace CARRENT.Controllers
 
             db.Voitures.Add(voiture);
             db.SaveChanges();
-
+            //this.SharedSession["voitures"] = db.Voitures;
             return RedirectToAction("Index");
         }
 
+       
 
         // GET: Voitures/Edit/
         public ActionResult Edit(int? id)

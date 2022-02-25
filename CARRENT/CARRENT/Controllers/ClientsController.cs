@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -38,6 +39,7 @@ namespace CARRENT.Controllers
                     client.PermisFichier.SaveAs(@"C:\Users\ACER\Desktop\DOTNETCAR\CARRENTRepository\CARRENT\CARRENT\Images\" + client.PermisFichier.FileName);
                     client.CheminImagePermis = client.PermisFichier.FileName;
 
+
                     db.Clients.Add(client);
                     db.SaveChanges();
                 }
@@ -59,8 +61,11 @@ namespace CARRENT.Controllers
                 if(cl!=null)
                 {
                     Session["CLID"] = cl.CLID.ToString();
+                    //this.SharedSession["CLID"] = cl.CLID.ToString();
                     Session["AdresseMail"] = cl.AdresseMail.ToString();
+                    //this.SharedSession["AdresseMail"] = cl.AdresseMail.ToString();
                     Session["NomComplet"] = cl.NomComplet.ToString();
+                    //this.SharedSession["NomComplet"] = cl.NomComplet.ToString();
                     return RedirectToAction("LoggedIn");
                 }
                 else
