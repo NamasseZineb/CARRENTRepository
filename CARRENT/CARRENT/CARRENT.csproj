@@ -199,6 +199,7 @@
     <Content Include="Images\permisconduire7.JPG" />
     <Content Include="Images\permisconduire8.JPG" />
     <Content Include="Images\permisconduire9.JPG" />
+    <Content Include="Images\voiture.ico" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -283,6 +284,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="CaptureEcran\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
